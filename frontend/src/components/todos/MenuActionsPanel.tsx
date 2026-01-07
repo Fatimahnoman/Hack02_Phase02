@@ -296,241 +296,281 @@ const MenuActionsPanel = ({
 
       <style jsx>{`
         .menu-actions-panel {
-          margin-bottom: 24px;
-          padding: 20px;
-          border: 1px solid #e1e5e9;
-          border-radius: 12px;
-          background-color: white;
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+          margin-bottom: 30px;
+          padding: 25px;
+          background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+          border-radius: 16px;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          backdrop-filter: blur(10px);
         }
 
         .menu-toggle-btn {
-          background-color: #0070f3;
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
           color: white;
           border: none;
-          padding: 12px 16px;
-          border-radius: 8px;
+          padding: 14px 24px;
+          border-radius: 12px;
           cursor: pointer;
-          font-size: 1rem;
-          font-weight: 500;
-          transition: all 0.2s ease;
+          font-size: 1.1rem;
+          font-weight: 600;
+          transition: all 0.3s ease;
+          box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+          width: 100%;
+          letter-spacing: 0.5px;
         }
 
         .menu-toggle-btn:hover {
-          background-color: #0060e0;
-          transform: translateY(-1px);
+          transform: translateY(-3px);
+          box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+          background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
         }
 
         .actions-menu {
-          margin-top: 16px;
-          padding: 20px;
-          background-color: #f8fafc;
-          border: 1px solid #e1e5e9;
-          border-radius: 8px;
+          margin-top: 20px;
+          padding: 25px;
+          background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+          border-radius: 12px;
+          box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+          border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
         .main-menu h3 {
           margin-top: 0;
-          margin-bottom: 16px;
-          color: #111;
-          font-size: 1.25rem;
-          font-weight: 600;
+          margin-bottom: 20px;
+          color: #2d3748;
+          font-size: 1.4rem;
+          font-weight: 700;
+          text-align: center;
+          background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
         }
 
         .menu-options {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-          gap: 12px;
+          grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+          gap: 15px;
         }
 
         .menu-btn {
-          padding: 14px;
-          border: 1px solid #d1d5da;
-          border-radius: 8px;
+          padding: 16px;
+          border: none;
+          border-radius: 10px;
           cursor: pointer;
           font-size: 1rem;
-          font-weight: 500;
-          transition: all 0.2s ease;
+          font-weight: 600;
+          transition: all 0.3s ease;
           text-align: left;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+          position: relative;
+          overflow: hidden;
+        }
+
+        .menu-btn::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 100%);
+          z-index: 1;
+        }
+
+        .menu-btn span {
+          position: relative;
+          z-index: 2;
         }
 
         .menu-btn:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+          transform: translateY(-4px);
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
         }
 
         .add-btn {
-          background-color: #f0f7ff;
-          color: #0066cc;
-          border-color: #c6e0ff;
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          color: white;
         }
 
         .add-btn:hover {
-          background-color: #e6f2ff;
+          background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
         }
 
         .update-btn {
-          background-color: #fff7e6;
-          color: #d97706;
-          border-color: #ffd88a;
+          background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+          color: white;
         }
 
         .update-btn:hover {
-          background-color: #fff4d1;
+          background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%);
         }
 
         .delete-btn {
-          background-color: #ffebee;
-          color: #c5221f;
-          border-color: #f8b4b0;
+          background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+          color: #2d3748;
         }
 
         .delete-btn:hover {
-          background-color: #fdd8d6;
+          background: linear-gradient(135deg, #fecfef 0%, #ff9a9e 100%);
         }
 
         .complete-btn {
-          background-color: #e6f4ea;
-          color: #137333;
-          border-color: #b7e3c4;
+          background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+          color: white;
         }
 
         .complete-btn:hover {
-          background-color: #d2efda;
+          background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
         }
 
         .incomplete-btn {
-          background-color: #fff3e0;
-          color: #e67700;
-          border-color: #ffd8a8;
+          background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+          color: white;
         }
 
         .incomplete-btn:hover {
-          background-color: #ffe9c2;
+          background: linear-gradient(135deg, #38f9d7 0%, #43e97b 100%);
         }
 
         .view-btn {
-          background-color: #f3e5f5;
-          color: #7b1fa2;
-          border-color: #e1b3e8;
+          background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+          color: white;
         }
 
         .view-btn:hover {
-          background-color: #edccec;
+          background: linear-gradient(135deg, #fee140 0%, #fa709a 100%);
         }
 
         .exit-btn {
-          background-color: #f1f3f5;
-          color: #495057;
-          border-color: #d1d5da;
+          background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+          color: #2d3748;
         }
 
         .exit-btn:hover {
-          background-color: #e9ecef;
+          background: linear-gradient(135deg, #fed6e3 0%, #a8edea 100%);
         }
 
         .action-form h3 {
           margin-top: 0;
-          margin-bottom: 16px;
-          color: #111;
-          font-size: 1.25rem;
-          font-weight: 600;
+          margin-bottom: 20px;
+          color: #2d3748;
+          font-size: 1.4rem;
+          font-weight: 700;
+          text-align: center;
+          background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
         }
 
         .form-fields {
-          margin-bottom: 16px;
+          margin-bottom: 20px;
         }
 
         .form-input {
           display: block;
           width: 100%;
-          margin-bottom: 12px;
-          padding: 10px 12px;
-          border: 1px solid #d1d5da;
-          border-radius: 6px;
-          font-size: 0.95rem;
-          transition: border-color 0.2s ease, box-shadow 0.2s ease;
+          margin-bottom: 15px;
+          padding: 12px 16px;
+          border: 2px solid #e2e8f0;
+          border-radius: 10px;
+          font-size: 1rem;
+          transition: all 0.3s ease;
+          background: white;
         }
 
         .form-input:focus {
           outline: none;
-          border-color: #0070f3;
-          box-shadow: 0 0 0 3px rgba(0, 112, 243, 0.1);
+          border-color: #667eea;
+          box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
         }
 
         .form-input.title-input {
-          font-size: 1rem;
+          font-size: 1.05rem;
           font-weight: 500;
         }
 
         .form-input.description-input {
-          height: 80px;
+          height: 100px;
           resize: vertical;
+          font-family: inherit;
         }
 
         .task-selection {
-          margin-bottom: 16px;
+          margin-bottom: 20px;
         }
 
         .task-selection label {
           display: block;
-          margin-bottom: 8px;
-          font-weight: 500;
-          color: #333;
-          font-size: 0.95rem;
+          margin-bottom: 10px;
+          font-weight: 600;
+          color: #4a5568;
+          font-size: 1rem;
         }
 
         .task-select {
           width: 100%;
-          padding: 10px 12px;
-          border: 1px solid #d1d5da;
-          border-radius: 6px;
-          font-size: 0.95rem;
-          background-color: white;
-          transition: border-color 0.2s ease, box-shadow 0.2s ease;
+          padding: 12px 16px;
+          border: 2px solid #e2e8f0;
+          border-radius: 10px;
+          font-size: 1rem;
+          background: white;
+          transition: all 0.3s ease;
         }
 
         .task-select:focus {
           outline: none;
-          border-color: #0070f3;
-          box-shadow: 0 0 0 3px rgba(0, 112, 243, 0.1);
+          border-color: #667eea;
+          box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
         }
 
         .form-actions {
           display: flex;
-          gap: 12px;
-          justify-content: flex-start;
+          gap: 15px;
+          justify-content: center;
         }
 
         .confirm-btn, .cancel-btn {
-          padding: 10px 16px;
+          padding: 12px 24px;
           border: none;
-          border-radius: 6px;
+          border-radius: 10px;
           cursor: pointer;
-          font-size: 0.95rem;
-          font-weight: 500;
-          transition: all 0.2s ease;
+          font-size: 1rem;
+          font-weight: 600;
+          transition: all 0.3s ease;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .confirm-btn {
-          background-color: #0070f3;
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
           color: white;
         }
 
         .confirm-btn:hover {
-          background-color: #0060e0;
+          background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+          transform: translateY(-2px);
+          box-shadow: 0 6px 12px rgba(102, 126, 234, 0.3);
         }
 
         .cancel-btn {
-          background-color: #fa5252;
-          color: white;
+          background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+          color: #2d3748;
         }
 
         .cancel-btn:hover {
-          background-color: #f03e3e;
+          background: linear-gradient(135deg, #fecfef 0%, #ff9a9e 100%);
+          transform: translateY(-2px);
+          box-shadow: 0 6px 12px rgba(255, 154, 158, 0.3);
         }
 
         @media (max-width: 768px) {
+          .menu-actions-panel {
+            padding: 20px;
+            margin-bottom: 25px;
+          }
+
           .menu-options {
             grid-template-columns: 1fr;
           }
@@ -541,6 +581,10 @@ const MenuActionsPanel = ({
 
           .confirm-btn, .cancel-btn {
             width: 100%;
+          }
+
+          .main-menu h3, .action-form h3 {
+            font-size: 1.2rem;
           }
         }
       `}</style>

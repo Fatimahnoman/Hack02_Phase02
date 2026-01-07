@@ -69,97 +69,118 @@ const TodoForm = ({ onSubmit }: TodoFormProps) => {
       <button type="submit" className="submit-btn btn-primary">Add Task</button>
       <style jsx>{`
         .todo-form {
-          background: white;
-          border: 1px solid #e1e5e9;
-          border-radius: 12px;
-          padding: 24px;
-          margin-bottom: 24px;
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+          background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+          border-radius: 16px;
+          padding: 30px;
+          margin-bottom: 30px;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          backdrop-filter: blur(10px);
         }
 
         .form-header {
-          margin-bottom: 20px;
+          margin-bottom: 25px;
+          text-align: center;
         }
 
         .form-header h2 {
-          margin: 0 0 4px 0;
-          font-size: 1.4rem;
-          font-weight: 600;
-          color: #111;
+          margin: 0 0 8px 0;
+          font-size: 1.6rem;
+          font-weight: 700;
+          color: #2d3748;
+          background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
         }
 
         .form-subtitle {
           margin: 0;
-          color: #666;
-          font-size: 0.9rem;
+          color: #718096;
+          font-size: 1rem;
+          font-weight: 500;
         }
 
         .form-group {
-          margin-bottom: 16px;
+          margin-bottom: 20px;
         }
 
         .date-label {
           display: block;
-          margin-bottom: 6px;
-          font-weight: 500;
-          color: #333;
-          font-size: 0.9rem;
+          margin-bottom: 10px;
+          font-weight: 600;
+          color: #4a5568;
+          font-size: 1rem;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
         }
 
         .title-input, .description-input, .date-input {
           width: 100%;
-          padding: 12px 14px;
-          border: 1px solid #d1d5da;
-          border-radius: 8px;
-          font-size: 1rem;
-          transition: border-color 0.2s ease, box-shadow 0.2s ease;
+          padding: 14px 18px;
+          border: 2px solid #e2e8f0;
+          border-radius: 12px;
+          font-size: 1.05rem;
+          transition: all 0.3s ease;
+          background: white;
+          box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
         }
 
         .title-input:focus, .description-input:focus, .date-input:focus {
           outline: none;
-          border-color: #0070f3;
-          box-shadow: 0 0 0 3px rgba(0, 112, 243, 0.1);
+          border-color: #667eea;
+          box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2), inset 0 2px 4px rgba(0, 0, 0, 0.05);
         }
 
         .description-input {
-          height: 90px;
+          height: 120px;
           resize: vertical;
           font-family: inherit;
+          line-height: 1.5;
         }
 
         .submit-btn {
           width: 100%;
-          padding: 14px;
+          padding: 16px;
           border: none;
-          border-radius: 8px;
-          font-size: 1rem;
-          font-weight: 500;
+          border-radius: 12px;
+          font-size: 1.1rem;
+          font-weight: 600;
           cursor: pointer;
-          transition: all 0.2s ease;
-        }
-
-        .btn-primary {
-          background-color: #0070f3;
+          transition: all 0.3s ease;
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
           color: white;
+          letter-spacing: 0.5px;
+          box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
         }
 
-        .btn-primary:hover {
-          background-color: #0060e0;
-          transform: translateY(-1px);
-          box-shadow: 0 4px 12px rgba(0, 112, 243, 0.2);
+        .submit-btn:hover {
+          background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+          transform: translateY(-3px);
+          box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
         }
 
-        .btn-primary:active {
+        .submit-btn:active {
           transform: translateY(0);
+          box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
         }
 
         @media (max-width: 768px) {
           .todo-form {
-            padding: 20px;
+            padding: 25px 20px;
           }
 
           .form-header h2 {
-            font-size: 1.25rem;
+            font-size: 1.4rem;
+          }
+
+          .form-subtitle {
+            font-size: 0.95rem;
+          }
+
+          .title-input, .description-input, .date-input {
+            padding: 12px 16px;
+            font-size: 1rem;
           }
         }
       `}</style>

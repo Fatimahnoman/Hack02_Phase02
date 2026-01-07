@@ -178,62 +178,80 @@ const DashboardPage = () => {
 
       <style jsx global>{`
         .dashboard-container {
-          max-width: 800px;
+          max-width: 900px;
           margin: 0 auto;
-          padding: 20px;
+          padding: 30px 20px;
+          background: linear-gradient(135deg, #f5f7fa 0%, #e4edf9 100%);
+          min-height: calc(100vh - 120px);
+          border-radius: 12px;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
         }
 
         .page-header {
-          margin-bottom: 24px;
-          padding-bottom: 16px;
-          border-bottom: 1px solid #e1e5e9;
+          margin-bottom: 30px;
+          padding-bottom: 20px;
+          text-align: center;
+          background: white;
+          border-radius: 10px;
+          padding: 25px;
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
         }
 
         .page-header h1 {
-          margin: 0 0 8px 0;
-          font-size: 2rem;
+          margin: 0 0 12px 0;
+          font-size: 2.2rem;
           font-weight: 700;
-          color: #111;
+          color: #1a1a1a;
+          letter-spacing: -0.5px;
         }
 
         .page-header h2 {
-          margin: 0 0 8px 0;
-          font-size: 2rem;
-          font-weight: 700;
-          color: #111;
+          margin: 0 0 12px 0;
+          font-size: 1.8rem;
+          font-weight: 600;
+          color: #2d3748;
+          background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
         }
 
         .page-subtitle {
           margin: 0;
-          color: #666;
+          color: #4a5568;
           font-size: 1.1rem;
+          font-weight: 500;
         }
 
         .evolution-text {
-          margin: 0 0 8px 0;
-          font-size: 1.8rem;
-          color: #0070f3;
+          margin: 0 0 15px 0;
+          font-size: 2rem;
+          color: #2b6cb0;
           text-decoration: underline;
           text-decoration-color: #000;
           text-align: center;
+          font-weight: 700;
+          text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
 
         .success-message {
-          margin: 16px 0;
-          padding: 12px 16px;
-          background-color: #d4edda;
-          color: #155724;
-          border: 1px solid #c3e6cb;
-          border-radius: 8px;
-          font-weight: 500;
+          margin: 20px auto;
+          padding: 16px 20px;
+          background: linear-gradient(135deg, #68d391 0%, #48bb78 100%);
+          color: white;
+          border: none;
+          border-radius: 10px;
+          font-weight: 600;
           text-align: center;
-          animation: fadeInSlideDown 0.3s ease-out;
+          animation: fadeInSlideDown 0.4s ease-out;
+          max-width: 500px;
+          box-shadow: 0 4px 15px rgba(72, 187, 120, 0.3);
         }
 
         @keyframes fadeInSlideDown {
           from {
             opacity: 0;
-            transform: translateY(-10px);
+            transform: translateY(-20px);
           }
           to {
             opacity: 1;
@@ -243,11 +261,24 @@ const DashboardPage = () => {
 
         @media (max-width: 768px) {
           .dashboard-container {
-            padding: 16px;
+            padding: 20px 15px;
+            margin: 15px;
+          }
+
+          .page-header {
+            padding: 20px;
           }
 
           .page-header h1 {
-            font-size: 1.75rem;
+            font-size: 1.8rem;
+          }
+
+          .page-header h2 {
+            font-size: 1.5rem;
+          }
+
+          .evolution-text {
+            font-size: 1.6rem;
           }
         }
       `}</style>

@@ -126,30 +126,43 @@ const TodoItem = ({ todo, onToggle, onUpdate, onDelete }: TodoItemProps) => {
       </div>
       <style jsx>{`
         .todo-item {
-          background: white;
-          border: 1px solid #e1e5e9;
-          border-radius: 12px;
-          padding: 16px;
-          margin-bottom: 12px;
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-          transition: box-shadow 0.2s ease, transform 0.2s ease;
+          background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+          border: none;
+          border-radius: 16px;
+          padding: 20px;
+          margin-bottom: 16px;
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+          transition: all 0.3s ease;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .todo-item::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 4px;
+          height: 100%;
+          background: linear-gradient(to bottom, #667eea 0%, #764ba2 100%);
+          border-radius: 16px 0 0 16px;
         }
 
         .todo-item:hover {
-          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
-          transform: translateY(-2px);
+          box-shadow: 0 12px 30px rgba(102, 126, 234, 0.2);
+          transform: translateY(-3px);
         }
 
         .todo-item.completed {
           opacity: 0.85;
-          background-color: #f8f9fa;
+          background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
         }
 
         .todo-content {
           display: flex;
           justify-content: space-between;
           align-items: flex-start;
-          gap: 12px;
+          gap: 16px;
         }
 
         .todo-header {
@@ -160,47 +173,48 @@ const TodoItem = ({ todo, onToggle, onUpdate, onDelete }: TodoItemProps) => {
         }
 
         .todo-checkbox {
-          width: 24px;
-          height: 24px;
+          width: 28px;
+          height: 28px;
           cursor: pointer;
           border: 2px solid #d1d5da;
-          border-radius: 4px;
+          border-radius: 8px;
           background-color: white;
           display: flex;
           align-items: center;
           justify-content: center;
-          font-size: 12px;
+          font-size: 14px;
           font-weight: bold;
-          transition: all 0.2s ease;
+          transition: all 0.3s ease;
           flex-shrink: 0;
-          margin-right: 12px;
-          margin-top: 4px;
+          margin-right: 16px;
+          margin-top: 2px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
 
         .todo-checkbox.completed {
-          background-color: #0070f3;
-          border-color: #0070f3;
+          background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+          border-color: #4facfe;
           color: white;
         }
 
         .todo-checkbox.incomplete {
           background-color: white;
-          border-color: #d1d5da;
-          color: #fa5252;
+          border-color: #e2e8f0;
+          color: #ff6b6b;
         }
 
         .todo-checkbox:hover {
-          transform: scale(1.05);
+          transform: scale(1.1);
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .todo-checkbox.completed:hover {
-          background-color: #0060e0;
-          border-color: #0060e0;
+          background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
         }
 
         .todo-checkbox.incomplete:hover {
           background-color: #fff5f5;
-          border-color: #fa5252;
+          border-color: #ff6b6b;
         }
 
         .todo-text {
@@ -210,27 +224,30 @@ const TodoItem = ({ todo, onToggle, onUpdate, onDelete }: TodoItemProps) => {
 
         .todo-title {
           margin: 0 0 8px 0;
-          font-size: 1.1rem;
-          font-weight: 600;
-          color: #111;
+          font-size: 1.2rem;
+          font-weight: 700;
+          color: #2d3748;
           line-height: 1.4;
+          word-break: break-word;
         }
 
         .todo-title.completed {
           text-decoration: line-through;
-          color: #666;
+          color: #718096;
+          opacity: 0.8;
         }
 
         .todo-description {
           margin: 0 0 8px 0;
-          color: #555;
-          font-size: 0.95rem;
+          color: #4a5568;
+          font-size: 1rem;
           line-height: 1.5;
+          word-break: break-word;
         }
 
         .todo-description.completed {
           text-decoration: line-through;
-          color: #888;
+          color: #a0aec0;
         }
 
         .todo-meta {
@@ -238,81 +255,89 @@ const TodoItem = ({ todo, onToggle, onUpdate, onDelete }: TodoItemProps) => {
           align-items: center;
           gap: 12px;
           flex-wrap: wrap;
+          margin-top: 4px;
         }
 
         .todo-due-date {
           display: inline-flex;
           align-items: center;
-          gap: 4px;
-          padding: 4px 8px;
-          background-color: #f0f7ff;
-          color: #0066cc;
-          border-radius: 6px;
+          gap: 6px;
+          padding: 6px 12px;
+          background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+          color: white;
+          border-radius: 20px;
           font-size: 0.85rem;
-          font-weight: 500;
+          font-weight: 600;
         }
 
         .todo-due-date.completed {
-          background-color: #e6f4ea;
-          color: #137333;
+          background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
         }
 
         .todo-completed-badge {
           display: inline-flex;
           align-items: center;
-          gap: 4px;
-          padding: 4px 8px;
-          background-color: #e6f4ea;
-          color: #137333;
-          border-radius: 6px;
+          gap: 6px;
+          padding: 6px 12px;
+          background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+          color: white;
+          border-radius: 20px;
           font-size: 0.85rem;
-          font-weight: 500;
+          font-weight: 600;
         }
 
         .todo-actions {
           display: flex;
-          gap: 8px;
-          margin-left: 12px;
+          gap: 10px;
+          margin-left: 16px;
           flex-shrink: 0;
         }
 
         .btn-primary, .btn-secondary, .btn-danger {
           border: none;
-          border-radius: 6px;
+          border-radius: 10px;
           cursor: pointer;
           font-size: 0.9rem;
-          padding: 8px 12px;
-          transition: all 0.2s ease;
+          padding: 10px 14px;
+          transition: all 0.3s ease;
           display: inline-flex;
           align-items: center;
           justify-content: center;
+          font-weight: 600;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
         .btn-primary {
-          background-color: #0070f3;
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
           color: white;
         }
 
         .btn-primary:hover {
-          background-color: #0060e0;
+          background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
         }
 
         .btn-secondary {
-          background-color: #f1f3f5;
-          color: #495057;
-        }
-
-        .btn-secondary:hover {
-          background-color: #e9ecef;
-        }
-
-        .btn-danger {
-          background-color: #fa5252;
+          background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
           color: white;
         }
 
+        .btn-secondary:hover {
+          background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%);
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(240, 147, 251, 0.3);
+        }
+
+        .btn-danger {
+          background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+          color: #2d3748;
+        }
+
         .btn-danger:hover {
-          background-color: #f03e3e;
+          background: linear-gradient(135deg, #fecfef 0%, #ff9a9e 100%);
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(255, 154, 158, 0.3);
         }
 
         .edit-form {
@@ -323,113 +348,117 @@ const TodoItem = ({ todo, onToggle, onUpdate, onDelete }: TodoItemProps) => {
         .edit-header {
           display: flex;
           align-items: flex-start;
-          gap: 12px;
-          margin-bottom: 12px;
+          gap: 16px;
+          margin-bottom: 16px;
         }
 
         .edit-checkbox {
-          width: 24px;
-          height: 24px;
+          width: 28px;
+          height: 28px;
           cursor: pointer;
           border: 2px solid #d1d5da;
-          border-radius: 4px;
+          border-radius: 8px;
           background-color: white;
           display: flex;
           align-items: center;
           justify-content: center;
-          font-size: 12px;
+          font-size: 14px;
           font-weight: bold;
-          transition: all 0.2s ease;
+          transition: all 0.3s ease;
           flex-shrink: 0;
-          margin-right: 12px;
-          margin-top: 4px;
+          margin-right: 16px;
+          margin-top: 2px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
 
         .edit-checkbox.completed {
-          background-color: #0070f3;
-          border-color: #0070f3;
+          background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+          border-color: #4facfe;
           color: white;
         }
 
         .edit-checkbox.incomplete {
           background-color: white;
-          border-color: #d1d5da;
-          color: #fa5252;
+          border-color: #e2e8f0;
+          color: #ff6b6b;
         }
 
         .edit-checkbox:hover {
-          transform: scale(1.05);
+          transform: scale(1.1);
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .edit-checkbox.completed:hover {
-          background-color: #0060e0;
-          border-color: #0060e0;
+          background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
         }
 
         .edit-checkbox.incomplete:hover {
           background-color: #fff5f5;
-          border-color: #fa5252;
+          border-color: #ff6b6b;
         }
 
         .edit-title {
           flex: 1;
-          padding: 10px 12px;
-          border: 1px solid #d1d5da;
-          border-radius: 6px;
-          font-size: 1rem;
-          font-weight: 500;
-          transition: border-color 0.2s ease;
+          padding: 12px 16px;
+          border: 2px solid #e2e8f0;
+          border-radius: 10px;
+          font-size: 1.05rem;
+          font-weight: 600;
+          transition: all 0.3s ease;
+          background: white;
         }
 
         .edit-title:focus {
           outline: none;
-          border-color: #0070f3;
-          box-shadow: 0 0 0 3px rgba(0, 112, 243, 0.1);
+          border-color: #667eea;
+          box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
         }
 
         .edit-description {
           width: 100%;
-          padding: 10px 12px;
-          margin-bottom: 12px;
-          border: 1px solid #d1d5da;
-          border-radius: 6px;
-          height: 80px;
+          padding: 12px 16px;
+          margin-bottom: 16px;
+          border: 2px solid #e2e8f0;
+          border-radius: 10px;
+          height: 100px;
           resize: vertical;
-          font-size: 0.95rem;
-          transition: border-color 0.2s ease;
+          font-size: 1rem;
+          transition: all 0.3s ease;
+          background: white;
         }
 
         .edit-description:focus {
           outline: none;
-          border-color: #0070f3;
-          box-shadow: 0 0 0 3px rgba(0, 112, 243, 0.1);
+          border-color: #667eea;
+          box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
         }
 
         .edit-date {
           width: 100%;
-          padding: 10px 12px;
-          margin-bottom: 12px;
-          border: 1px solid #d1d5da;
-          border-radius: 6px;
-          font-size: 0.95rem;
-          transition: border-color 0.2s ease;
+          padding: 12px 16px;
+          margin-bottom: 16px;
+          border: 2px solid #e2e8f0;
+          border-radius: 10px;
+          font-size: 1rem;
+          transition: all 0.3s ease;
+          background: white;
         }
 
         .edit-date:focus {
           outline: none;
-          border-color: #0070f3;
-          box-shadow: 0 0 0 3px rgba(0, 112, 243, 0.1);
+          border-color: #667eea;
+          box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
         }
 
         .edit-buttons {
           display: flex;
-          gap: 8px;
+          gap: 10px;
         }
 
         @media (max-width: 768px) {
           .todo-content {
             flex-direction: column;
-            gap: 12px;
+            gap: 16px;
           }
 
           .todo-actions {
@@ -440,7 +469,15 @@ const TodoItem = ({ todo, onToggle, onUpdate, onDelete }: TodoItemProps) => {
           .todo-meta {
             flex-direction: column;
             align-items: flex-start;
-            gap: 6px;
+            gap: 8px;
+          }
+
+          .todo-checkbox {
+            margin-right: 12px;
+          }
+
+          .todo-actions {
+            margin-left: 0;
           }
         }
       `}</style>
