@@ -39,7 +39,6 @@ app.add_middleware(
         "https://hack02-phase02-l4wx.vercel.app",  # Your frontend URL
         "http://localhost:3000",  # Local development
         "http://localhost:3001",  # Alternative local dev port
-        "*"  # Allow all during development (can be restricted later)
     ],
     allow_credentials=True,
     allow_methods=["*"],
