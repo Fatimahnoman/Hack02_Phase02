@@ -35,7 +35,12 @@ app = FastAPI(title="Evolution of Todo API", version="0.1.0", lifespan=lifespan)
 # Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # In production, specify your frontend URL
+    allow_origins=[
+        "https://hack02-phase02-l4wx.vercel.app",  # Your frontend URL
+        "http://localhost:3000",  # Local development
+        "http://localhost:3001",  # Alternative local dev port
+        "*"  # Allow all during development (can be restricted later)
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
